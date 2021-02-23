@@ -29,11 +29,11 @@ class _DropZoneState extends State<DropZone> {
   bool _dragInBounds = false;
 
   Rect? _getGlobalPaintBounds() {
-    final renderObject = context?.findRenderObject();
-    final translation = renderObject?.getTransformTo(null)?.getTranslation();
+    final renderObject = context.findRenderObject();
+    final translation = renderObject?.getTransformTo(null).getTranslation();
 
-    if (translation != null && renderObject!.paintBounds != null) {
-      return renderObject.paintBounds
+    if (translation != null && renderObject?.paintBounds != null) {
+      return renderObject?.paintBounds
           .shift(Offset(translation.x, translation.y));
     }
 
@@ -88,7 +88,8 @@ class _DropZoneState extends State<DropZone> {
     super.initState();
 
     _onDropSubscription = html.document.body!.onDrop.listen(_onDrop);
-    _onDragOverSubscription = html.document.body!.onDragOver.listen(_onDragOver);
+    _onDragOverSubscription =
+        html.document.body!.onDragOver.listen(_onDragOver);
   }
 
   @override
