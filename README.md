@@ -1,7 +1,7 @@
 # drop_zone
 
 [![pub package](https://img.shields.io/pub/v/drop_zone.svg)](https://pub.dev/packages/drop_zone)
-![License](https://img.shields.io/github/license/derrick56007/drop_zone)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A simple way to bring drag’n’drop to flutter web.
 
