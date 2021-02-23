@@ -4,14 +4,14 @@ import 'dart:html' as html;
 
 import 'package:flutter/widgets.dart';
 
-class DragZone extends StatefulWidget {
+class DropZone extends StatefulWidget {
   final Widget child;
   final Function() onDragEnter;
   final Function() onDragExit;
 
   final Function(List<html.File>) onDrop;
 
-  const DragZone({
+  const DropZone({
     @required this.child,
     Key key,
     this.onDrop,
@@ -20,10 +20,10 @@ class DragZone extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _DragZoneState();
+  State<StatefulWidget> createState() => _DropZoneState();
 }
 
-class _DragZoneState extends State<DragZone> {
+class _DropZoneState extends State<DropZone> {
   StreamSubscription<html.MouseEvent> _onDragOverSubscription;
   StreamSubscription<html.MouseEvent> _onDropSubscription;
   bool _dragInBounds = false;
