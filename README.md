@@ -7,6 +7,8 @@ A simple way to bring drag’n’drop to flutter web.
 
 drop_zone is commonly used for file choosing by dragging and dropping a file(s) onto a designated widget. The user can then use the dropped html file(s).
 
+![](demo.gif?raw=true)
+
 ## Examples
 
 An example can be found in the example directory of this repository.
@@ -48,7 +50,7 @@ DropZone(
         width: 300,
         height: 300,
     )
-),
+)
 ```
 
 ## License
