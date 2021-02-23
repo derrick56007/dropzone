@@ -1,3 +1,7 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.2] - 2/22/21
 
-* TODO: Describe initial release.
+* Add readme, example, and demo gif
+
+## [0.0.1] - 2/22/21
+
+* initial release.
