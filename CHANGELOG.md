@@ -1,3 +1,7 @@
+## [1.0.0] - 2/22/21
+
+* Null Safety
+
 ## [0.0.2] - 2/22/21
 
 * Add readme, example, and demo gif
