@@ -6,14 +6,14 @@ import 'package:flutter/widgets.dart';
 
 class DropZone extends StatefulWidget {
   final Widget child;
-  final Function() onDragEnter;
-  final Function() onDragExit;
+  final Function()? onDragEnter;
+  final Function()? onDragExit;
 
-  final Function(List<html.File>) onDrop;
+  final Function(List<html.File>?)? onDrop;
 
   const DropZone({
-    @required this.child,
-    Key key,
+    required this.child,
+    Key? key,
     this.onDrop,
     this.onDragEnter,
     this.onDragExit,
@@ -24,15 +24,15 @@ class DropZone extends StatefulWidget {
 }
 
 class _DropZoneState extends State<DropZone> {
-  StreamSubscription<html.MouseEvent> _onDragOverSubscription;
-  StreamSubscription<html.MouseEvent> _onDropSubscription;
+  late StreamSubscription<html.MouseEvent> _onDragOverSubscription;
+  late StreamSubscription<html.MouseEvent> _onDropSubscription;
   bool _dragInBounds = false;
 
-  Rect _getGlobalPaintBounds() {
+  Rect? _getGlobalPaintBounds() {
     final renderObject = context?.findRenderObject();
     final translation = renderObject?.getTransformTo(null)?.getTranslation();
 
-    if (translation != null && renderObject.paintBounds != null) {
+    if (translation != null && renderObject!.paintBounds != null) {
       return renderObject.paintBounds
           .shift(Offset(translation.x, translation.y));
     }
@@ -87,8 +87,8 @@ class _DropZoneState extends State<DropZone> {
   void initState() {
     super.initState();
 
-    _onDropSubscription = html.document.body.onDrop.listen(_onDrop);
-    _onDragOverSubscription = html.document.body.onDragOver.listen(_onDragOver);
+    _onDropSubscription = html.document.body!.onDrop.listen(_onDrop);
+    _onDragOverSubscription = html.document.body!.onDragOver.listen(_onDragOver);
   }
 
   @override
