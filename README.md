@@ -9,7 +9,7 @@ drop_zone is commonly used for file choosing by dragging and dropping a file(s) 
 
 ![](demo.gif?raw=true)
 
-## Examples
+## Example
 
 An example can be found in the example directory of this repository.
 
@@ -22,14 +22,7 @@ dependencies:
   drop_zone: ^0.0.1
 ```
 
-Import it in your Dart code:
-
-```dart
-import 'package:drop_zone/drop_zone.dart';
-import 'dart:html' as html;
-```
-
-Wrap any widget with `DropZone()` to use it as a dropzone:
+Add necessary imports and wrap any widget with `DropZone()` to use it as a dropzone:
 
 ```dart
 import 'package:drop_zone/drop_zone.dart';
