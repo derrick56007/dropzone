@@ -19,7 +19,7 @@ Add `drop_zone` to `pubspec.yaml` of your project:
 
 ```yaml
 dependencies:
-  drop_zone: ^0.0.2
+  drop_zone: ^1.0.2
 ```
 
 Add necessary imports and wrap any widget with `DropZone()` to use it as a dropzone:

@@ -1,3 +1,7 @@
+## [1.0.2] - 3/14/21
+
+* Enable multiple drop zones
+
 ## [1.0.1] - 2/22/21
 
 * Null Safety fixes
