@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:drop_zone/drop_zone.dart';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
 void main() {
@@ -31,6 +32,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String dropzoneState = '';
+  String dropzoneState2 = '';
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +71,33 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Text(dropzoneState),
+            DropZone(
+              onDragEnter: () {
+                print('drag enter');
+                setState(() {
+                  dropzoneState2 = 'drag enter';
+                });
+              },
+              onDragExit: () {
+                print('drag exit');
+                setState(() {
+                  dropzoneState2 = 'drag exit';
+                });
+              },
+              onDrop: (List<html.File> files) {
+                print('files dropped');
+                print(files);
+                setState(() {
+                  dropzoneState2 = 'files dropped $files';
+                });
+              },
+              child: Container(
+                decoration: BoxDecoration(border: Border.all()),
+                width: 300,
+                height: 300,
+              ),
+            ),
+            Text(dropzoneState2),
           ],
         ),
       ),

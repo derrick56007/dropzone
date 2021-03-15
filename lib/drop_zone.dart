@@ -1,8 +1,9 @@
-import 'dart:async';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
 import 'package:flutter/widgets.dart';
+
+import 'dispatcher.dart';
 
 class DropZone extends StatefulWidget {
   final Widget child;
@@ -20,12 +21,11 @@ class DropZone extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _DropZoneState();
+  State<StatefulWidget> createState() => DropZoneState();
 }
 
-class _DropZoneState extends State<DropZone> {
-  late StreamSubscription<html.MouseEvent> _onDragOverSubscription;
-  late StreamSubscription<html.MouseEvent> _onDropSubscription;
+class DropZoneState extends State<DropZone> {
+  late int id;
   bool _dragInBounds = false;
 
   Rect? _getGlobalPaintBounds() {
@@ -42,35 +42,9 @@ class _DropZoneState extends State<DropZone> {
 
   @override
   void dispose() {
-    _onDropSubscription.cancel();
-    _onDragOverSubscription.cancel();
+    Dispatcher.shared.removeZone(id);
 
     super.dispose();
-  }
-
-  void _onDrop(html.MouseEvent value) {
-    value
-      ..stopPropagation()
-      ..stopImmediatePropagation()
-      ..preventDefault();
-
-    widget.onDrop?.call(value.dataTransfer.files);
-  }
-
-  void _onDragOver(html.MouseEvent value) {
-    value
-      ..stopPropagation()
-      ..stopImmediatePropagation()
-      ..preventDefault();
-
-    final tmp = _isCursorWithinBounds(value);
-    if (!_dragInBounds && tmp) {
-      widget.onDragEnter?.call();
-    } else if (_dragInBounds && !tmp) {
-      widget.onDragExit?.call();
-    }
-
-    _dragInBounds = tmp;
   }
 
   bool _isCursorWithinBounds(html.MouseEvent value) {
@@ -87,9 +61,20 @@ class _DropZoneState extends State<DropZone> {
   void initState() {
     super.initState();
 
-    _onDropSubscription = html.document.body!.onDrop.listen(_onDrop);
-    _onDragOverSubscription =
-        html.document.body!.onDragOver.listen(_onDragOver);
+    id = Dispatcher.shared.addZone(onDragOver: (e) {
+      final tmp = _isCursorWithinBounds(e);
+      if (!_dragInBounds && tmp) {
+        widget.onDragEnter?.call();
+      } else if (_dragInBounds && !tmp) {
+        widget.onDragExit?.call();
+      }
+
+      _dragInBounds = tmp;
+    }, onDrop: (e) {
+      if (_isCursorWithinBounds(e)) {
+        widget.onDrop?.call(e.dataTransfer.files);
+      }
+    });
   }
 
   @override
