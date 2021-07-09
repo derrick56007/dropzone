@@ -10,7 +10,7 @@ class DropZone extends StatefulWidget {
   final Function()? onDragEnter;
   final Function()? onDragExit;
 
-  final Function(List<html.File>?)? onDrop;
+  final Function(List<html.File>, Offset)? onDrop;
 
   const DropZone({
     required this.child,
@@ -72,7 +72,8 @@ class DropZoneState extends State<DropZone> {
       _dragInBounds = tmp;
     }, onDrop: (e) {
       if (_isCursorWithinBounds(e)) {
-        widget.onDrop?.call(e.dataTransfer.files);
+        widget.onDrop?.call(e.dataTransfer.files ?? <html.File>[],
+            Offset(e.offset.x as double, e.offset.y as double));
       }
     });
   }
