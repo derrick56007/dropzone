@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-
 import 'package:drop_zone/drop_zone.dart';
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
@@ -57,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   dropzoneState = 'drag exit';
                 });
               },
-              onDrop: (List<html.File> files) {
+              onDrop: (files, offset) {
                 print('files dropped');
                 print(files);
                 setState(() {
@@ -84,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   dropzoneState2 = 'drag exit';
                 });
               },
-              onDrop: (List<html.File> files) {
+              onDrop: (files, offset) {
                 print('files dropped');
                 print(files);
                 setState(() {
