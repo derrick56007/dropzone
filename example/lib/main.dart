@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             DropZone(
-              onDragEnter: () {
+              onDragEnter: (files) {
                 print('drag enter');
                 setState(() {
                   dropzoneState = 'drag enter';
@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(dropzoneState),
             DropZone(
-              onDragEnter: () {
+              onDragEnter: (files) {
                 print('drag enter');
                 setState(() {
                   dropzoneState2 = 'drag enter';
