@@ -1,7 +1,6 @@
 ## 1.1.0
 
 * Added support for cursor position in on dropped callback.
-* Added files to the on drag enter callback.
 * Replaced `dart:html` imports with `universal_html` to allow for compilation
   on other platforms.
 

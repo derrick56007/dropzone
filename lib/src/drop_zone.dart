@@ -11,8 +11,9 @@ class DropZone extends StatefulWidget {
     this.onDragExit,
   }) : super(key: key);
 
-  final void Function(List<html.File>? files)? onDragEnter;
+  final void Function()? onDragEnter;
   final void Function()? onDragExit;
+
   final void Function(List<html.File>? files, Offset offset)? onDrop;
 
   final Widget child;
@@ -61,7 +62,7 @@ class DropZoneState extends State<DropZone> {
     id = Dispatcher.shared.addZone(onDragOver: (e) {
       final tmp = _isCursorWithinBounds(e);
       if (!_dragInBounds && tmp) {
-        widget.onDragEnter?.call(e.dataTransfer.files);
+        widget.onDragEnter?.call();
       } else if (_dragInBounds && !tmp) {
         widget.onDragExit?.call();
       }
