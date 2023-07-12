@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   dropzoneState = 'drag exit';
                 });
               },
-              onDrop: (List<html.File> files) {
+              onDrop: (List<html.File>? files) {
                 print('files dropped');
                 print(files);
                 setState(() {
@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   dropzoneState2 = 'drag exit';
                 });
               },
-              onDrop: (List<html.File> files) {
+              onDrop: (List<html.File>? files) {
                 print('files dropped');
                 print(files);
                 setState(() {

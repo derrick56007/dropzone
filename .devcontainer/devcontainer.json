@@ -1,0 +1,47 @@
+{
+	"name": "flutter-project-dev-container",
+	"build": {
+		"context": ".",
+		"dockerfile": "Dockerfile"
+	},
+	// "settings": {
+	// 	"terminal.integrated.defaultProfile.linux": "bash",
+	// 	"python.formatting.provider": "autopep8",
+	// 	"python.linting.pylintEnabled": true,
+	// 	"python.linting.enabled": true,
+	// 	"python.analysis.extraPaths": [
+	// 		"./server/"
+	// 	],
+	// 	"editor.formatOnSave": true,
+	// 	"python.formatting.autopep8Args": [
+	// 		"--max-line-length=200",
+	// 	],
+	// 	"tws.highlightTrailingWhiteSpace": true,
+	// },
+	// "extensions": [
+	// 	"ms-python.python",
+	// 	"ms-toolsai.jupyter",
+	// 	"jkiviluoto.tws",
+	// 	"dart-code.dart-code",
+	// 	"dart-code.flutter",
+	// ],
+	// "runArgs": [
+	// 	"--network=host",
+	// ],
+	// "forwardPorts": [
+	// 	8080,
+	// 	8081,
+	// ],
+	// "mounts": [
+	// 	"source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind"
+	// ],
+	"remoteUser": "vscode",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Dart-Code.flutter"
+			]
+		}
+	},
+	// "postCreateCommand": "cd app && flutter pub get && cd ../server && pip3 install -r requirements.txt"
+}

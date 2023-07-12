@@ -7,10 +7,10 @@ import 'dispatcher.dart';
 
 class DropZone extends StatefulWidget {
   final Widget child;
-  final Function()? onDragEnter;
-  final Function()? onDragExit;
+  final void Function()? onDragEnter;
+  final void Function()? onDragExit;
 
-  final Function(List<html.File>?)? onDrop;
+  final void Function(List<html.File>?)? onDrop;
 
   const DropZone({
     required this.child,
